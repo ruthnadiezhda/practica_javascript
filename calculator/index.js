@@ -24,3 +24,18 @@ const mensajeFinal = "El promedio es " + promedio + "," + " el triple es " + tri
 
 console.log(mensajeFinal);
 alert(mensajeFinal);
+
+
+
+/*Actividad: sumando varios números*/
+
+const cantidad = Number(prompt("¿Cuántos números desea sumar?"));
+let sumatoria = 0;
+
+for (let index=1; index<= cantidad; index++){
+    const numeroAsumar = Number(prompt("Ingrese un número a sumar: "));
+    sumatoria = sumatoria + numeroAsumar;
+}
+
+console.log("La sumatoria es: "+ sumatoria);
+alert("La sumatoria es: " + sumatoria);
