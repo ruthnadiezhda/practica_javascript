@@ -1,3 +1,4 @@
+/*
 let totalApagar = 0;
 
 const nombre =prompt("¿Qué producto desea llevar?");
@@ -14,7 +15,7 @@ console.log(mensaje);
 alert(mensaje);
 
 
-/*Versión Jero*/
+Versión Jero
 
 let totalApagar2 = 0;
 let totalProducto = Number(prompt("¿Cuantos productos diferentes desea llevar?: "))
@@ -32,7 +33,7 @@ console.log(mensaje2);
 alert(mensaje2);
 
 
-/*Versión funciones*/
+Versión funciones
 function comprar (){
     const repeticion = Number(prompt("¿Cuantos productos distintos desea llevar?: "));
     let totalApagar3 = 0;
@@ -53,3 +54,4 @@ const total3= comprar();
 const totalfinal = total1 + total2 + total3;
 console.log("La suma total de las compras es: " + totalfinal);
 alert("La suma total de las compras es: " + totalfinal);
+*/
