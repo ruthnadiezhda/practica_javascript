@@ -3,8 +3,8 @@ const inputSearch = document.getElementById("search");
 
 function createCard(product) { return `
     <article class="product-card">
-        <a class="product-link" href="details.html">
-            <img class="product-img" src="${product.images}" alt="Macbook Pro" />
+        <a class="product-link" href="details.html?id=${product.id}">
+            <img class="product-img" src="${product.image}" alt="Macbook Pro" />
             <div class="product-info">
                 <span class="product-title">${product.title}</span>
                 <span class="product-description">${product.description}</span>
