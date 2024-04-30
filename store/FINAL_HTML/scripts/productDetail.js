@@ -14,12 +14,12 @@ function printDetails(id) {
     <div id="details" class="columns-container">
     <section class="product-images-block">
     <div class="product-images">
-    ${product.images.map(each => `<img class="mini-img" src="${each}" alt="mini" />`).join("")}
+    ${product.images.map(each => `<img class="mini-img" src="${each}" alt="mini" onclick="changeMini(event)" />`).join("")}
     </div>
       <img
         class="big-img"
         id="big-img"
-        src="https://i.postimg.cc/HxGQcrcp/mock1.jpg"
+        src="${product.images[0]}"
         alt="MacBook Pro 13'4"
       />
     </section>
@@ -28,7 +28,7 @@ function printDetails(id) {
       <form class="product-selector">
         <fieldset class="product-fieldset">
           <label class="product-label" for="color">Color</label>
-        <select type="text" placeholder="Selecciona un color">
+        <select type="text" placeholder="Selecciona un color" id="color-${product.id}">
             ${product.colors.map((each) => `<option value=${each}>${each}</option>`).join("")}
         </select>
         </fieldset>
@@ -43,7 +43,7 @@ function printDetails(id) {
     <div class="product-checkout-block">
       <div class="checkout-container">
         <span class="checkout-total-label">Total:</span>
-        <h2 id="price" class="checkout-total-price">${product.price}</h2>
+        <h2 class="checkout-total-price">${"$" + product.price.toString()}</h2>
         <p class="checkout-description">
           Incluye impuesto PAIS y percepción AFIP. Podés recuperar AR$
           50711 haciendo la solicitud en AFIP.
@@ -70,8 +70,8 @@ function printDetails(id) {
         </ul>
         <div class="checkout-process">
           <div class="top">
-            <input type="number" min="1" value="1" />
-            <button type="button" class="cart-btn">
+            <input type="number" min="1" value="1" onchange="changeSubtotal()" id="quantity-${product.id}" />
+            <button type="button" class="cart-btn" onclick="saveProduct()" >
               Añadir al Carrito
             </button>
           </div>
@@ -141,6 +141,45 @@ function printDetails(id) {
     `;
     const detailsSelector = document.querySelector("#details");
     detailsSelector.innerHTML = detailsTemplate;
+}
+function changeMini(event) {
+  const selectedSrc = event.target.src;
+  const bigSelector = document.querySelector("#big-img");
+  bigSelector.src = selectedSrc;
+}
+
+function changeSubtotal(){
+  const product = products.find((each)=> each.id == id);
+  const selectedValue = parseInt(event.target.value);
+  const priceSelector = document.querySelector(".chekcout-total-price");
+  const total= parseInt(product.price)*selectedValue;
+  priceSelector.innerHTML = "$" + total.toString();
+}
+
+function saveProduct() {
+  const found = products.find((each) => each.id === id);
+  console.log(found);
+  const product = {
+  id: id,
+  title: found.title,
+  price: found.price,
+  image: found.images[0],
+  color: document.querySelector("#color-" + id).value,
+  quantity: document.querySelector("#quantity-" + id).value,
+  };
+
+  let cartItems = localStorage.getItem("cart");
+  if (!cartItems){
+    localStorage.setItem("cart", JSON.stringify([product]));
+  } else {
+    cartItems = JSON.parse(cartItems);
+    if (!Array.isArray(cartItems)){
+      cartItems = [cartItems];
     }
-    printDetails(id)
+    cartItems.push(product);
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+  }
+}
+  
+printDetails(id)
     
