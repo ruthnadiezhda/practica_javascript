@@ -48,6 +48,7 @@
   padding: 5px;
 }
 
+
 /* RESUME */
 .cart-resume {
   width: 340px;
@@ -70,6 +71,7 @@
 }
 .cart-tax {
   padding-bottom: 10px;
+  font-size: 12px;
 }
 .cart-btn {
   width: 100%;

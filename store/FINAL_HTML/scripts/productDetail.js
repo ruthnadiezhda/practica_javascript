@@ -28,8 +28,9 @@ function saveProduct() {
   title: found.title,
   price: found.price,
   image: found.images[0],
-  color: document.querySelector("#color-" + id).value,
-  quantity: document.querySelector("#quantity-" + id).value,
+  color: document.querySelector("#color").value,
+  quantity: document.querySelector("#quantity").value,
+  description: found.description,
   };
 
   let cartItems = localStorage.getItem("cart");
@@ -68,7 +69,7 @@ function printDetails(id) {
       <form class="product-selector">
         <fieldset class="product-fieldset">
           <label class="product-label" for="color">Color</label>
-        <select type="text" placeholder="Selecciona un color" id="color-${product.id}">
+        <select type="text" placeholder="Selecciona un color" id="color">
             ${product.colors.map((each) => `<option value=${each}>${each}</option>`).join("")}
         </select>
         </fieldset>
@@ -108,7 +109,7 @@ function printDetails(id) {
         </ul>
         <div class="checkout-process">
           <div class="top">
-            <input type="number" min="1" value="1" onchange="changeSubtotal(event)" id="quantity-${product.id}" />
+            <input type="number" min="1" value="1" onchange="changeSubtotal(event)" id="quantity" />
             <button type="button" class="cart-btn" onclick="saveProduct()" >
               Añadir al Carrito
             </button>
