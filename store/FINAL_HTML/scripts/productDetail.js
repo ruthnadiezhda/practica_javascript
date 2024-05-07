@@ -5,6 +5,46 @@ console.log(query);
 const id = params.get('id');
 console.log(id);
 
+function changeMini(event) {
+  const selectedSrc = event.target.src;
+  const bigSelector = document.querySelector("#big-img");
+  bigSelector.src = selectedSrc;
+}
+
+function changeSubtotal(event){
+  const product = products.find((each)=> each.id == id);
+  console.log(event.target);
+  const selectedValue = parseInt(event.target.value);
+  const priceSelector = document.querySelector(".checkout-total-price");
+  const total= parseInt(product.price)*selectedValue;
+  priceSelector.innerHTML = ("$" + total.toString());
+}
+
+function saveProduct() {
+  const found = products.find((each) => each.id === id);
+  console.log(found);
+  const product = {
+  id: id,
+  title: found.title,
+  price: found.price,
+  image: found.images[0],
+  color: document.querySelector("#color-" + id).value,
+  quantity: document.querySelector("#quantity-" + id).value,
+  };
+
+  let cartItems = localStorage.getItem("cart");
+  if (!cartItems){
+    localStorage.setItem("cart", JSON.stringify([product]));
+    console.log(product);
+  } else {
+    cartItems = JSON.parse(cartItems);
+    if (!Array.isArray(cartItems)){
+      cartItems = [cartItems];
+    }
+    cartItems.push(product);
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+  }
+}
 
 function printDetails(id) {
     console.log(products);
@@ -35,9 +75,7 @@ function printDetails(id) {
       </form>
       <div class="product-description">
         <span class="product-label">Descripción</span>
-        <p>
-         ${product.description}
-        </p>
+        <p>${product.description}</p>
       </div>
     </div>
     <div class="product-checkout-block">
@@ -70,7 +108,7 @@ function printDetails(id) {
         </ul>
         <div class="checkout-process">
           <div class="top">
-            <input type="number" min="1" value="1" onchange="changeSubtotal()" id="quantity-${product.id}" />
+            <input type="number" min="1" value="1" onchange="changeSubtotal(event)" id="quantity-${product.id}" />
             <button type="button" class="cart-btn" onclick="saveProduct()" >
               Añadir al Carrito
             </button>
@@ -142,44 +180,22 @@ function printDetails(id) {
     const detailsSelector = document.querySelector("#details");
     detailsSelector.innerHTML = detailsTemplate;
 }
-function changeMini(event) {
-  const selectedSrc = event.target.src;
-  const bigSelector = document.querySelector("#big-img");
-  bigSelector.src = selectedSrc;
-}
 
-function changeSubtotal(){
-  const product = products.find((each)=> each.id == id);
-  const selectedValue = parseInt(event.target.value);
-  const priceSelector = document.querySelector(".chekcout-total-price");
-  const total= parseInt(product.price)*selectedValue;
-  priceSelector.innerHTML = "$" + total.toString();
-}
-
-function saveProduct() {
-  const found = products.find((each) => each.id === id);
-  console.log(found);
-  const product = {
-  id: id,
-  title: found.title,
-  price: found.price,
-  image: found.images[0],
-  color: document.querySelector("#color-" + id).value,
-  quantity: document.querySelector("#quantity-" + id).value,
-  };
-
-  let cartItems = localStorage.getItem("cart");
-  if (!cartItems){
-    localStorage.setItem("cart", JSON.stringify([product]));
-  } else {
-    cartItems = JSON.parse(cartItems);
-    if (!Array.isArray(cartItems)){
-      cartItems = [cartItems];
-    }
-    cartItems.push(product);
-    localStorage.setItem("cart", JSON.stringify(cartItems));
-  }
-}
-  
 printDetails(id)
-    
+
+
+/*
+var cardproducts = document.getElementById("card-products");
+for (var i = 0; i < localStorage.length; i++){
+  var element = document.createElement("p")
+  element.textContent = localStorage.getItem(localStorage.key(i)) 
+  cardproducts.appendChild(element)
+}
+
+for (var i = 0; i < localStorage.length; i++){
+  var elemento = localStorage.getItem(localStorage.key(i));
+  var suma = 0;
+  const precioelemento= parseInt(elemento.price)*selectedValue;
+  suma = suma + precioelemento;
+}
+*/
