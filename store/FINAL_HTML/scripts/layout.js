@@ -80,3 +80,51 @@ for (let option of options2) {
     footerSelector.appendChild(div_col);
 }
 
+
+/*ACTIVIDAD INTEGRADORA*/
+
+//Obtiene valor de session
+let session = localStorage.getItem("isOnline");
+//Muestra session
+console.log(session);
+//Si no existe session, lo crea (pone valor default a false a isOnline)
+if (!session){
+    localStorage.setItem("isOnline", JSON.stringify(false));
+}
+
+
+//Crear función para evaluar el booleano  isOnline y renderizar los iconos
+function renderizarIconos(){
+    //Obtengo los elementos
+    const isOnline= localStorage.getItem("isOnline") === "true";
+    console.log(isOnline);
+    const iconoSessionOut = document.getElementById("sessionout");
+    const iconoSessionIn = document.getElementById("sessionin");
+    const iconoCarrito = document.getElementById("cart");
+
+    //Evaluo condiciones para mostrar y ocultar elementos
+    if(isOnline){
+        iconoSessionOut.classList.add("hidden");
+        iconoSessionIn.classList.remove("hiden");
+        iconoCarrito.classList.remove("hidden");
+    } else {
+        iconoSessionOut.classList.remove("hidden");
+        iconoSessionIn.classList.add("hiden");
+        iconoCarrito.classList.add("hidden");
+    }
+}
+
+
+//Logica para cerrar sesión cuando se clickee el icono de SessionOut y para que se muestre el carrito y perfil cuando tenga SessionIn
+document.getElementById("sessionout").addEventListener("click", function(){
+    localStorage.setItem("isOnline",JSON.stringify(true));
+    renderizarIconos();
+});
+
+document.getElementById("sessionin").addEventListener("click", function(){
+    localStorage.setItem("isOnline",JSON.stringify(false));
+    renderizarIconos();
+});
+
+// Llamar a renderIcons inicialmente para establecer la vista correcta al cargar
+document.addEventListener('DOMContentLoaded', renderizarIconos);

@@ -1,10 +1,6 @@
 let cartproducts = JSON.parse(localStorage.getItem("cart"));
 console.log(cartproducts);
 
-for (i=0;i<localStorage.length;i++) {
-    console.log(cartproducts[i].title)
-}
-
 /*Renderizar dinámicamente los productos del carrito*/
 
 //Definir función printCard

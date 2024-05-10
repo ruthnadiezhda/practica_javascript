@@ -66,13 +66,6 @@ header {
 .header-social-img {
   padding: 10px;
 }
-.icon-header{
-  color:white;
-  font-size: 25px;
-}
-.hidden {
-  display: none; 
-}
 
 /* NAVBAR */
 nav {
