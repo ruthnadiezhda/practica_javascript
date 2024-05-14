@@ -29,3 +29,24 @@ console.log("Con Amigos:");
 console.log(conAmigos);
 console.log("Con Familia:");
 console.log(conFamilia);
+
+
+
+/*CREACIÓN DE UN NUEVO OBJETO CON UN NUEVO ARREGLO*/
+const todos = [...solo, ...enPareja,...conAmigos,...conFamilia];
+console.log(todos);
+
+
+
+/*DEFINICIÓN PERSONALIZADA DE HOBBIES*/
+//Segundo hobby en solitario
+const segundoHobbySolo1 = solo[1];
+//Tercer y cuarto hobbies en pareja
+const tercerCuartoHobbyEnPareja = enPareja.slice(2,4);
+//Primer hobby con amigos
+const primerHobbyConAmigos = conAmigos[0];
+//Creación de variable algunos
+const algunos = [segundoHobbySolo1,tercerCuartoHobbyEnPareja,primerHobbyConAmigos,...conFamilia];
+//Imprimir
+console.log("Algunos: ")
+console.log(algunos);
