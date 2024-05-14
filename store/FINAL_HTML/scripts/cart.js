@@ -49,6 +49,7 @@ function printCart(){
         })
     }
 }
+//import { printCart } from "./functions/printCart.js";
 
 /*Renderizar el total a pagar*/
 function printTotal(){
@@ -83,6 +84,7 @@ function printTotal(){
         window.location.href = "./index.html";
     });
 }
+//import { printTotal } from "./functions/printTotal.js";
 
 /*Evento changeQuantity(event) para cambiar la cantidad de productos en el carrito*/
 //Definir función changeQuantity
@@ -104,6 +106,7 @@ function changeQuantity(event){
     printCart();
     printTotal();
 }
+
 
 printCart();
 printTotal();

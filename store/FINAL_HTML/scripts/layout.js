@@ -94,6 +94,7 @@ if (!session){
 
 
 //Crear función para evaluar el booleano  isOnline y renderizar los iconos
+/*
 function renderizarIconos(){
     //Obtengo los elementos
     const isOnline= localStorage.getItem("isOnline") === "true";
@@ -113,6 +114,8 @@ function renderizarIconos(){
         iconoCarrito.classList.add("hidden");
     }
 }
+*/
+import { renderizarIconos } from "./functions/renderizarIconos.js";
 
 
 //Logica para cerrar sesión cuando se clickee el icono de SessionOut y para que se muestre el carrito y perfil cuando tenga SessionIn

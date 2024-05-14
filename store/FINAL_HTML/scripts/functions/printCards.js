@@ -1,7 +1,3 @@
-const productsSelector = document.getElementById("products");
-const inputSearch = document.getElementById("search");
-
-/*
 function createCard(product) { return `
     <article class="product-card">
         <a class="product-link" href="details.html?id=${product.id}">
@@ -19,10 +15,7 @@ function createCard(product) { return `
     </article>
     `;
 }
-*/
-
-/*
-function printCards(products, idSelector){
+export function printCards(products, idSelector){
     let productsTemplate = "";
     for (let product of products) {
         productsTemplate += createCard(product);
@@ -31,7 +24,3 @@ function printCards(products, idSelector){
     const productsSelector = document.getElementById(idSelector);
     productsSelector.innerHTML = productsTemplate;
 }
-*/
-import { printCards } from "./functions/printCards.js";
-
-printCards(products,"products");

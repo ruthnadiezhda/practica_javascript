@@ -47,6 +47,8 @@ function saveProduct() {
   }
 }
 
+
+
 function printDetails(id) {
     console.log(products);
     const product = products.find((each) => each.id === id);
@@ -181,7 +183,7 @@ function printDetails(id) {
     const detailsSelector = document.querySelector("#details");
     detailsSelector.innerHTML = detailsTemplate;
 }
-
+//import { printDetails } from "./functions/printDetails.js";
 printDetails(id)
 
 
