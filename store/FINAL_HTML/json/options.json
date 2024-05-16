@@ -1,0 +1,22 @@
+{
+    "navegacion":[{
+        "titulo": "Ofertas",
+        "enlace": "/outlet"
+    },{
+        "titulo": "Cómo comtrar",
+        "enlace": "/how"
+    },{
+        "titulo": "Costos y tarifas",
+        "enlace": "/taxs"
+    },{
+        "titulo": "Mis pedidos",
+        "enlace": "/orders"
+    },{
+        "titulo": "Garantía",
+        "enlace": "/warranty"
+    }
+    ],
+    "footer":{
+        "texto":"Curso de HTML + CSS 2024"
+    }
+}
