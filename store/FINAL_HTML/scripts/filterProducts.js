@@ -31,7 +31,8 @@ searchSelector.addEventListener("keyup", captureText);
 Investigación del evento de teclado
 searchSelector.addEventListener("keyup", event=>captureText(event));
 */
-
+import { printCards } from "./functions/printCards.js";
+printCards(products,"products");
 
 /*Filtrar productos*/
 let filteredProducts = [];
