@@ -59,9 +59,13 @@ function printTotal(){
 
     if (cartproducts !== null){
         //Iterar sobre productos del carrito
+        /*
         cartproducts.forEach(product =>{
             totalPrice = totalPrice + (product.price*product.quantity);
         });
+        */
+       //Metodo reduce para calcular el total a pagar de los productos agregados al carrito
+       totalPrice = cartproducts.reduce((acc, product) => acc + (product.price * product.quantity), 0);
     }
 
     //Traer el selector del contenedor del total
