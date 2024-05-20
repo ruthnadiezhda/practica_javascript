@@ -50,6 +50,7 @@ function printCart(){
     }
 }
 //import { printCart } from "./functions/printCart.js";
+//import { changeQuantity } from "./functions/changeQuantity.js";
 
 /*Renderizar el total a pagar*/
 function printTotal(){
@@ -107,6 +108,7 @@ function changeQuantity(event){
     printTotal();
 }
 
+//import {changeQuantity} from "./functions/changeQuantity.js";
 
 printCart();
 printTotal();

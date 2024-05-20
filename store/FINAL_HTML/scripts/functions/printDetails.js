@@ -1,63 +1,8 @@
-const query = location.search;
-console.log(location);
-const params = new URLSearchParams(query);
-console.log(query);
-const id = params.get('id');
-console.log(id);
+import {changeMini} from "./changeMini.js";
+import {changeSubtotal} from "./changeSubtotal.js";
+import {saveProduct} from "./saveProduct.js";
 
-/*
-function changeMini(event) {
-  const selectedSrc = event.target.src;
-  const bigSelector = document.querySelector("#big-img");
-  bigSelector.src = selectedSrc;
-}
-*/
-import {changeMini} from "./functions/changeMini.js";
-
-/*
-function changeSubtotal(event){
-  const product = products.find((each)=> each.id == id);
-  console.log(event.target);
-  const selectedValue = parseInt(event.target.value);
-  const priceSelector = document.querySelector(".checkout-total-price");
-  const total= parseInt(product.price)*selectedValue;
-  priceSelector.innerHTML = ("$" + total.toString());
-}
-*/
-import {changeSubtotal} from "./functions/changeSubtotal.js";
-
-/*
-function saveProduct() {
-  const found = products.find((each) => each.id === id);
-  console.log(found);
-  const product = {
-  id: id,
-  title: found.title,
-  price: found.price,
-  image: found.images[0],
-  color: document.querySelector("#color").value,
-  quantity: document.querySelector("#quantity").value,
-  description: found.description,
-  };
-
-  let cartItems = localStorage.getItem("cart");
-  if (!cartItems){
-    localStorage.setItem("cart", JSON.stringify([product]));
-    console.log(product);
-  } else {
-    cartItems = JSON.parse(cartItems);
-    if (!Array.isArray(cartItems)){
-      cartItems = [cartItems];
-    }
-    cartItems.push(product);
-    localStorage.setItem("cart", JSON.stringify(cartItems));
-  }
-}
-*/
-import {saveProduct} from "./functions/saveProduct.js";
-
-/*
-function printDetails(id) {
+export function printDetails(id) {
     console.log(products);
     const product = products.find((each) => each.id === id);
     console.log(product);
@@ -191,23 +136,3 @@ function printDetails(id) {
     const detailsSelector = document.querySelector("#details");
     detailsSelector.innerHTML = detailsTemplate;
 }
-*/
-import { printDetails } from "./functions/printDetails.js";
-printDetails(id);
-
-
-/*
-var cardproducts = document.getElementById("card-products");
-for (var i = 0; i < localStorage.length; i++){
-  var element = document.createElement("p")
-  element.textContent = localStorage.getItem(localStorage.key(i)) 
-  cardproducts.appendChild(element)
-}
-
-for (var i = 0; i < localStorage.length; i++){
-  var elemento = localStorage.getItem(localStorage.key(i));
-  var suma = 0;
-  const precioelemento= parseInt(elemento.price)*selectedValue;
-  suma = suma + precioelemento;
-}
-*/
