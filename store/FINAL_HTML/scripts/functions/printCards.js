@@ -16,7 +16,11 @@ function createCard(product) { return `
     `;
 }
 export function printCards(products, idSelector){
+    //Crea el template vacío de los productos
     let productsTemplate = "";
+    //Sort para ordenarlos de forma ascendente
+    products.sort((a,b) => a.title.localeCompare(b.title));
+    //Iterar para imprimir los productos
     for (let product of products) {
         productsTemplate += createCard(product);
     }
