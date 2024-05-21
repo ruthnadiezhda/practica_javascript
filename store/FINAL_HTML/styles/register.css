@@ -1,4 +1,4 @@
-.login-container {
+.register-container {
     background-color: white;
     padding: 20px;
     border-radius: 5px;
@@ -7,11 +7,11 @@
     text-align: center;
     margin: 15px;
 }
-.login-container h1 {
+.register-container h1 {
     margin-bottom: 20px;
 }
-.login-container input[type="email"],
-.login-container input[type="password"] {
+.register-container input[type="email"],
+.register-container input[type="password"] {
     width: 95%;
     padding: 10px;
     margin: 10px 0;
@@ -19,29 +19,42 @@
     border-radius: 5px;
     font-size: 14px;
 }
-.login-container input[type="submit"] {
+.register-container input[type="submit"] {
     width: 100%;
     padding: 15px;
     background-color: #f44336;
     color: white;
-    border: none;
+    border: none; 
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
 }
-.login-container input[type="submit"]:hover {
+.register-container input[type="submit"]:hover {
     background-color: #d32f2f;
 }
-.login-container a {
+.register-container a {
     color: #007bff;
     text-decoration: none;
     font-size: 14px;
 }
-.login-container a:hover {
+.register-container a:hover {
     text-decoration: underline;
 }
-.register-link {
-    margin-top: 20px;
+.register-container p {
+    font-size: 12px;
+    color: #777;
+    padding: 10px;
+}
+.register-container p a {
+    color: #007bff;
+    text-decoration: none;
+}
+.register-container p a:hover {
+    text-decoration: underline;
+}
+.register-container .checkbox {
+    text-align: left;
+    margin: 10px 0;
 }
 .divider {
     display: flex;
@@ -60,15 +73,6 @@
 .divider::after {
     margin-left: 0.25em;
 }
-.login-container p {
-    font-size: 12px;
-    color: #777;
-    padding: 10px;
-}
-.login-container p a {
-    color: #007bff;
-    text-decoration: none;
-}
-.login-container p a:hover {
-    text-decoration: underline;
+.login-link {
+    margin-top: 20px;
 }
