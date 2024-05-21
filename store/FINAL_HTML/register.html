@@ -80,12 +80,8 @@
 <main>
     <div class="register-container">
     <h1>Regístrate</h1>
-    <form
-        id="registerForm"
-        action="dashboard.html"
-        method="post"
-        onsubmit="return validateRegisterForm()"
-    >
+    <!-- <form id="registerForm" action="dashboard.html" method="post" onsubmit="return validateRegisterForm()"> -->
+    <form id="registerForm" action="dashboard.html" method="post" onsubmit="return handleRegister(event)">
     <input
         type="email"
         id="email"

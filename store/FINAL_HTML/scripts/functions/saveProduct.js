@@ -4,6 +4,7 @@ const params = new URLSearchParams(query);
 console.log(query);
 const id = params.get('id');
 console.log(id);
+import { isUserOnline } from "./isUserOnline.js";
 
 export function saveProduct() {
     const found = products.find((each) => each.id === id);
@@ -17,18 +18,23 @@ export function saveProduct() {
     quantity: document.querySelector("#quantity").value,
     description: found.description,
     };
-  
-    let cartItems = localStorage.getItem("cart");
-    if (!cartItems){
-      localStorage.setItem("cart", JSON.stringify([product]));
-      console.log(product);
+
+    if (isUserOnline===false){
+      alert("Debe iniciar sesión para comprar");
     } else {
-      cartItems = JSON.parse(cartItems);
-      if (!Array.isArray(cartItems)){
-        cartItems = [cartItems];
+      let cartItems = localStorage.getItem("cart");
+      if (!cartItems){
+        localStorage.setItem("cart", JSON.stringify([product]));
+        console.log(product);
+      } else {
+        cartItems = JSON.parse(cartItems);
+        if (!Array.isArray(cartItems)){
+          cartItems = [cartItems];
+        }
+        cartItems.push(product);
+        localStorage.setItem("cart", JSON.stringify(cartItems));
       }
-      cartItems.push(product);
-      localStorage.setItem("cart", JSON.stringify(cartItems));
+      alert("Se agregó producto al carrito");
     }
 }
 window.saveProduct = saveProduct;
