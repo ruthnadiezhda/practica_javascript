@@ -1,4 +1,3 @@
-/*
 const navSelector = document.querySelector("#nav");
 
 const options1 = [
@@ -80,7 +79,6 @@ for (let option of options2) {
     console.log(div_col);
     footerSelector.appendChild(div_col);
 }
-*/
 
 /*ACTIVIDAD INTEGRADORA*/
 
@@ -130,11 +128,12 @@ document.getElementById("sessionin").addEventListener("click", function(){
     renderizarIconos();
 });
 
-// Llamar a renderIcons inicialmente para establecer la vista correcta al cargar
-//document.addEventListener('DOMContentLoaded', renderizarIconos);
+//Llamar a renderIcons inicialmente para establecer la vista correcta al cargar
+document.addEventListener('DOMContentLoaded', renderizarIconos);
 
 
 /*ACTIVIDAD: CONSUMO CON THEN/CATCH*/
+/*
 document.addEventListener("DOMContentLoaded", function () {
     // Actividad 1
     // fetchOptions();
@@ -184,9 +183,10 @@ function fetchProducts() {
     })
     .catch((error) => console.error("Error fetching products:", error));
 }
-
+*/
 
 /*ACTIVIDAD: CONSUMO ASYNC/AWAIT*/
+/*
 async function loadNavigationAndFooter() {
     try {
     const optionsResponse = await fetch("options.json");
@@ -228,3 +228,4 @@ async function loadProductDetails() {
         console.error("Error loading products:", error);
     }
 }
+*/
