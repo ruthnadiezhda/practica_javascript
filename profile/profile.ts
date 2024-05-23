@@ -142,3 +142,80 @@ compruebaTipoValor(profesion);
 compruebaTipoValor(mayorDeEdad);
 compruebaTipoValor(edad);
 compruebaTipoValor(familiar2);
+
+
+
+/*ACTIVIDAD: IMPLEMENTANDO EL USO DE GENERICS I*/
+//Array de personas
+let personas: Array<Persona> = [datosPersonales, familiar2, familiar3];
+console.log(personas);
+//Array de nombres
+let nombres:string[] = ["Ruth","Heberth","Gilmer","Kennedy","Lucero","Percy"];
+//Función obtener primer elemento del array
+function obtenerPrimerElemento<T>(array: T[]){
+    return array[0];
+}
+//Obtener primeros elementos
+const primeraPersona = obtenerPrimerElemento(personas);
+const primerNombre = obtenerPrimerElemento(nombres);
+console.log("Primer elemento de personas: " + primeraPersona);
+console.log("Primer elemento de nombres: "+ primerNombre);
+
+
+
+/*ACTIVIDAD: IMPLEMENTANDO EL USO DE GENERICS II*/
+//Clase generica Portfolio que almacene elementos de cualquier tipo
+//y tenga métodos para operar numeros y cadenas de texto
+class Portfolio<T>{
+    private items: T[] = [];
+
+    //Metodo para agregar un elemento al portfolio void
+    add(item: T): void{
+        this.items.push(item);
+    }
+
+    //Metodo para obtner el primer elemento del portfolio
+    getFirst():T{
+        return this.items[0];
+    }
+
+    //Metodo para sumar elementos numericos
+    suma():number {
+    return (this.items as number[]).reduce((acc,item)=> acc+item,0);
+    }
+
+    //Metodo concatenar cadenas de texto
+    concatenar():string{
+        return (this.items as string[]).join('');
+    }
+
+    //Metodo para obtener copia de elementos
+    getItems(): T[]{
+        return [...this.items];
+    }
+}
+
+const portfolioNumerico = new Portfolio<number>(); 
+portfolioNumerico.add(10); 
+portfolioNumerico.add(20); 
+portfolioNumerico.add(30); 
+portfolioNumerico.add(40); 
+portfolioNumerico.add(50); 
+
+console.log("PORTAFOLIO NUMERICO:")
+console.log(portfolioNumerico.getItems());
+console.log(portfolioNumerico.getFirst()); 
+console.log(portfolioNumerico.suma());   
+
+
+console.log("PORTAFOLIO TEXTUAL:")
+const portfolioTextual = new Portfolio<string>();
+portfolioTextual.add("Hola");
+portfolioTextual.add(" ");
+portfolioTextual.add("_");
+portfolioTextual.add("Mundo"); 
+
+// console.log(portfolioNumerico.items);
+console.log(portfolioTextual.getItems());
+console.log(portfolioTextual.getFirst());     
+console.log(portfolioTextual.concatenar()); 
