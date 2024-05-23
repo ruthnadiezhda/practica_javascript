@@ -1,30 +1,38 @@
 /*ACTIVIDAD: MODULOS*/
 import { Product } from "./data";
+import { productList } from "./productsTS";
 
-let prod1:Product = {id:"aaa", title: 'Macbook 15', price: "500", stock: 2, image: "./assets/mock1.jpg", images: ['./assets/mock1.jpg','./assets/mock2.jpg'], onsale: 5, supplier: "Apple", colors: ['Space Gray','Baby pink'], description: 'Incluye impuestos'};
-let prod2:Product = {id: "bbb", title: 'Laptop HP 8', price: "200", stock: 3, image: "./assets/mock1.jpg", images: ['./assets/mock1.jpg','./assets/mock2.jpg'], onsale: 10, supplier: "HP", colors: ['Space Gray','Rock pink'], description: 'Incluye impuestos'};
-let prod3:Product = {id: "ccc", title: 'Ipad 4', price: "10000", stock: 5, image: "./assets/mock1.jpg", images: ['./assets/mock1.jpg','./assets/mock2.jpg'], onsale: 20, supplier: "Apple", colors: ['Space Gray','Orange'], description: 'Incluye impuestos'};
-let prod4:Product = {id: "ddd", title: 'GoPro 4', price: "800000", stock: 1, image: "./assets/mock1.jpg", images: ['./assets/mock1.jpg','./assets/mock2.jpg'], onsale: 5, supplier: "GoPro", colors: ['Space Gray','Pure black'], description: 'Incluye impuestos'};
-let prod5:Product = {id: "eee", title: 'Televisor Samsung 6', price: "20000", stock: 9, image: "./assets/mock1.jpg", images: ['./assets/mock1.jpg','./assets/mock2.jpg'], onsale: 50, supplier: "Samsung", colors: ['Green landscape','Baby pink'], description: 'Incluye impuestos'};
-let prod6:Product = {id: "fff", title: 'Camara 1', price: "100", stock: 3, image: "./assets/mock1.jpg", images: ['./assets/mock1.jpg','./assets/mock2.jpg'], onsale: 99, supplier: "Samsung", colors: ['Space Gray','Ocean blue'], description: 'Incluye impuestos'};
+export type CreateCardFunction = (product: Product) => string;
 
-let productList: Array<Product> = [prod1,prod2,prod3,prod4,prod5,prod6];
+export const createCard: CreateCardFunction = (product) => {
+    return `
+        <article class="product-card">
+            <a class="product-link" href="details.html?id=${product.id}">
+                <img class="product-img" src="${product.images[0]}" alt="${product.title}" />
+                <div class="product-info">
+                    <span class="product-title">${product.title}</span>
+                    <span class="product-description">${product.description}</span>
+                    <div class="product-price-block">
+                        <span class="price">S/${product.price}</span>
+                        <span class="discount">${product.onsale}% Off</span>
+                    </div>
+                    <div class="product-tax-policy">${product.colors.join(', ')}</div>
+                </div>
+            </a>
+        </article>
+    `;
+};
 
-function createCard(product:Product) {
-    console.log('-----------------------------------------');
-    console.log(`ID: ${product.id}`);
-    console.log(`Title: ${product.title}`);
-    console.log(`Price: S/${product.price}`);
-    console.log(`Stock: ${product.stock}`);
-    console.log(`Image: ${product.image}`);
-    console.log(`Images: ${product.images.join(', ')}`);
-    console.log(`On Sale: ${product.onsale}% Off`);
-    console.log(`Supplier: ${product.supplier}`);
-    console.log(`Colors: ${product.colors.join(', ')}`);
-    console.log(`Description: ${product.description}`);
-    console.log('-----------------------------------------');
+export function printCards(products, idSelector){
+    //Crea el template vacío de los productos
+    let productsTemplate = "";
+    //Sort para ordenarlos de forma ascendente
+    products.sort((a,b) => a.title.localeCompare(b.title));
+    //Iterar para imprimir los productos
+    for (let product of products) {
+        productsTemplate += createCard(product);
+    }
+
+    const productsSelector = document.getElementById(idSelector);
+    productsSelector.innerHTML = productsTemplate;
 }
-
-productList.forEach(product => {
-    createCard(product);
-});
