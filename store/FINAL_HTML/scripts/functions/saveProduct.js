@@ -19,7 +19,7 @@ export function saveProduct() {
     description: found.description,
     };
 
-    if (isUserOnline===false){
+    if (isUserOnline===false ){
       alert("Debe iniciar sesión para comprar");
     } else {
       let cartItems = localStorage.getItem("cart");
