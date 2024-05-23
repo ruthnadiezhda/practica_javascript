@@ -107,6 +107,7 @@ if ("signo" in datosPersonales){
 
 
 /*ACTIVIDAD: IMPLEMENTANDO EL OPERADOR IS*/
+console.log("USO DEL IS:");
 function esString(valor:any): valor is string{
     return typeof valor === "string";
 }
