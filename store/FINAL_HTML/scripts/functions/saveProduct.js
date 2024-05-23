@@ -10,13 +10,13 @@ export function saveProduct() {
     const found = products.find((each) => each.id === id);
     console.log(found);
     const product = {
-    id: id,
-    title: found.title,
-    price: found.price,
-    image: found.images[0],
-    color: document.querySelector("#color").value,
-    quantity: document.querySelector("#quantity").value,
-    description: found.description,
+        id: id,
+        title: found.title,
+        price: found.price,
+        image: found.images[0],
+        color: document.querySelector("#color").value,
+        quantity: document.querySelector("#quantity").value,
+        description: found.description,
     };
 
     if (isUserOnline===false ){
