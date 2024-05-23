@@ -32,6 +32,6 @@ function printCards(products, idSelector){
     productsSelector.innerHTML = productsTemplate;
 }
 */
-import { printCards } from "./functions/printCards.js";
+import { printCards } from "./createCardsTS";
 
 printCards(products,"products");
