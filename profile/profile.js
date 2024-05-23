@@ -14,7 +14,7 @@ var datosPersonales = {
     hobby: hobby,
     mayorDeEdad: mayorDeEdad
 };
-console.log(datosPersonales);ts
+console.log(datosPersonales);
 /*ACTIVIDAD: CREANDO UNA INTERFAZ*/
 var familiar2 = {
     nombre: "Stefhanie Jaramillo",
@@ -32,5 +32,6 @@ var familiar3 = {
     hobby: "cantar",
     mayorDeEdad: true,
 };
+//let family = [datosPersonales, familiar2, familiar3];
 var family = [datosPersonales, familiar2, familiar3];
 console.log(family);

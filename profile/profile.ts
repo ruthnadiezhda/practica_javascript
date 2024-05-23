@@ -17,7 +17,7 @@ let datosPersonales = {
     mayorDeEdad
 };
 
-console.log(datosPersonales);
+console.log( datosPersonales);
 
 /*ACTIVIDAD: CREANDO UNA INTERFAZ*/
 let familiar2:Persona = {
@@ -40,5 +40,6 @@ let familiar3:Persona = {
 
 };
 
-let family = [datosPersonales, familiar2, familiar3];
+//let family = [datosPersonales, familiar2, familiar3];
+let family: Array<Persona> = [datosPersonales, familiar2, familiar3];
 console.log(family);
